@@ -9,7 +9,7 @@ class Solution {
             adj.get(flights[i][0]).add(new Pair(flights[i][1], flights[i][2]));
         }
 
-        Queue<Tuple> q = new LinkedList<>();
+        PriorityQueue<Tuple> q = new PriorityQueue<Tuple>((a,b)->a.stops-b.stops);
 
         q.add(new Tuple(0, src, 0));
 
