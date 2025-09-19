@@ -1,27 +1,21 @@
 class Spreadsheet {
-    int p[][];
+    HashMap<String,Integer>p;
 
     public Spreadsheet(int rows) {
-        p = new int[rows][26];
+        p = new HashMap<>();
     }
 
     public void setCell(String cell, int value) {
-        int x = cell.charAt(0) - 'A';
-        int y = Integer.parseInt(cell.substring(1));
-        p[y-1][x] = value;
+        p.put(cell,value);
     }
 
     public void resetCell(String cell) {
-        int x = cell.charAt(0) - 'A';
-        int y = Integer.parseInt(cell.substring(1));
-        p[y-1][x] = 0;
+        p.remove(cell);
     }
 
     private int get(String s) {
-        if (s.charAt(0) >= 'A' && s.charAt(0) <= 'Z') {
-            int x = s.charAt(0) - 'A';
-            int y = Integer.parseInt(s.substring(1));
-            return p[y-1][x];
+        if (s.charAt(0) > '9') {
+            return p.getOrDefault(s,0);
         } else {
             return Integer.parseInt(s);
         }
