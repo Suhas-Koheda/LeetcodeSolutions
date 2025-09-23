@@ -2,8 +2,7 @@ class Solution {
     public int compareVersion(String version1, String version2) {
         String s[] = version1.split("\\.");
         String s1[] = version2.split("\\.");
-        System.out.println(Arrays.toString(s));
-        System.out.println(Arrays.toString(s1));
+        
         int maxLength = Math.max(s.length, s1.length);
         for (int i = 0; i < maxLength; i++) {
             int m = (i < s.length) ? Integer.parseInt(s[i]) : 0;
