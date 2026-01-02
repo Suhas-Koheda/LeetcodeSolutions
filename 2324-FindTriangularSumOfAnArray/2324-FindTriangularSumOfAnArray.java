@@ -1,0 +1,14 @@
+// Last updated: 02/01/2026, 10:07:32
+class Solution {
+    public int triangularSum(int[] nums) {
+        return solve(nums);
+    }
+    int solve(int[] nums){
+        if(nums.length==1) return nums[0];
+        int arr[]=new int[nums.length-1];
+        for(int i=0;i<nums.length-1;i++){
+            arr[i]=(nums[i]+nums[i+1])%10;
+        }
+        return solve(arr);
+    }
+}
